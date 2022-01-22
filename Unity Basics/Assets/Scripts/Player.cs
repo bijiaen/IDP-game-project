@@ -9,9 +9,9 @@ public class Player : MonoBehaviour
     public Transform groundCheckTransform;
     public LayerMask playerMask;
     public Text coinTextElement;
-
-    private string coinTextValue = "0";
     private float coinCounter = 0;
+
+    private string coinTextValue = "Coins: 0";
 
     private Rigidbody rigidbodyComponent;
     private bool jumpKeyWasPressed;
@@ -23,7 +23,6 @@ public class Player : MonoBehaviour
     {
         Debug.Log("Test");
         rigidbodyComponent = GetComponent<Rigidbody>();
-        coinTextElement.text = coinTextValue;
     }
 
     // Update is called once per frame
@@ -36,8 +35,8 @@ public class Player : MonoBehaviour
         }
 
         horizontalInput = Input.GetAxis("Horizontal");
-        coinTextElement.text = coinTextValue;
 
+        coinTextElement.text = coinTextValue;
     }
 
     // FixedUpdate is called once every physic update
@@ -82,7 +81,8 @@ public class Player : MonoBehaviour
         {
             Destroy(other.gameObject);
             coinCounter++;
-            coinTextValue = coinCounter.ToString();
+
+            coinTextValue = "Coins: " + coinCounter.ToString();
             Debug.Log(coinCounter);
         }
     }
