@@ -9,25 +9,27 @@ public class Player : MonoBehaviour
     public Transform groundCheckTransform;
     public LayerMask playerMask;
 
+    public int maxHealth = 100; //health
+	public int currentHealth;//health
+    public HealthBar healthBar;//health
+
+    
     private float coinCounter = 0;
     private Rigidbody rigidbodyComponent;
     private bool jumpKeyWasPressed;
     private float horizontalInput;
 
 
-    public int maxHealth = 3;
-	public int currentHealth;
-
-	public HealthBar healthBar;
     // Start is called before the first frame update
     // Start is from unity MonoBehaviour   
     void Start()
     {
         Debug.Log("Test");
         rigidbodyComponent = GetComponent<Rigidbody>();
+        
+        currentHealth = maxHealth;//health
+		healthBar.SetMaxHealth(maxHealth);//health
 
-        currentHealth = maxHealth;
-		healthBar.SetMaxHealth(maxHealth);
     }
 
     // Update is called once per frame
@@ -40,16 +42,12 @@ public class Player : MonoBehaviour
         }
 
         horizontalInput = Input.GetAxis("Horizontal");
-
-
-
-     if (Input.GetKeyDown(KeyCode.Space))
-		{
-			TakeDamage(1);
-		}
+  
     }
 
     // FixedUpdate is called once every physic update
+
+   
 
     void FixedUpdate()
     {
@@ -93,22 +91,25 @@ public class Player : MonoBehaviour
             coinCounter++;
             Debug.Log(coinCounter);
         }
-
-        if(collision.tag == "enemies")
+        else if(other.gameObject.layer == 12)
         {
-            var healthComponent = collision.GetComponent<Health>();
-            if(healthComponent != null)
-            {
-                healthComponent.TakeDamage(1);
-            }
+            Destroy(other.gameObject);
+            TakeDamage(20);
         }
+        else if(other.gameObject.layer == 11)
+        {
+            TakeDamage(20);
+        }
+        
     }
+
     void TakeDamage(int damage)
 	{
 		currentHealth -= damage;
 
 		healthBar.SetHealth(currentHealth);
-	}
+	}//health
+   
 
    
 }

@@ -16,8 +16,8 @@ TagManager:
   - PlayerLayer
   - CoinLayer
   - 
-  - 
-  - 
+  - obstacles
+  - enemies
   - 
   - 
   - 
