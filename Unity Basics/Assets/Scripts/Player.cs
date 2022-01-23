@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,12 +14,20 @@ public class Player : MonoBehaviour
     private bool jumpKeyWasPressed;
     private float horizontalInput;
 
+
+    public int maxHealth = 3;
+	public int currentHealth;
+
+	public HealthBar healthBar;
     // Start is called before the first frame update
     // Start is from unity MonoBehaviour   
     void Start()
     {
         Debug.Log("Test");
         rigidbodyComponent = GetComponent<Rigidbody>();
+
+        currentHealth = maxHealth;
+		healthBar.SetMaxHealth(maxHealth);
     }
 
     // Update is called once per frame
@@ -32,6 +40,13 @@ public class Player : MonoBehaviour
         }
 
         horizontalInput = Input.GetAxis("Horizontal");
+
+
+
+     if (Input.GetKeyDown(KeyCode.Space))
+		{
+			TakeDamage(1);
+		}
     }
 
     // FixedUpdate is called once every physic update
@@ -78,5 +93,22 @@ public class Player : MonoBehaviour
             coinCounter++;
             Debug.Log(coinCounter);
         }
+
+        if(collision.tag == "enemies")
+        {
+            var healthComponent = collision.GetComponent<Health>();
+            if(healthComponent != null)
+            {
+                healthComponent.TakeDamage(1);
+            }
+        }
     }
+    void TakeDamage(int damage)
+	{
+		currentHealth -= damage;
+
+		healthBar.SetHealth(currentHealth);
+	}
+
+   
 }
