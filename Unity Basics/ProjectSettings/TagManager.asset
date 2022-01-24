@@ -12,10 +12,10 @@ TagManager:
   - Water
   - UI
   - 
-  - path
+  - 
   - PlayerLayer
   - CoinLayer
-  - 
+  - EndGameLayer
   - obstacles
   - enemies
   - 

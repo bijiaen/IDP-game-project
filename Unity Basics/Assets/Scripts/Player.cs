@@ -104,6 +104,10 @@ public class Player : MonoBehaviour
         {
             TakeDamage(20);
         }
+        else if (other.gameObject.layer == 10)
+        {
+            Debug.Log("END OF GAME!!");
+        }
         
     }
 
