@@ -9,19 +9,12 @@ public class Player : MonoBehaviour
     public Transform groundCheckTransform;
     public LayerMask playerMask;
 
-
     public int maxHealth = 100; //health
 	public int currentHealth;//health
     public HealthBar healthBar;//health
 
     
-
-    public Text coinTextElement;
-
     private float coinCounter = 0;
-
-    private string coinTextValue = "Coins: 0";
-
     private Rigidbody rigidbodyComponent;
     private bool jumpKeyWasPressed;
     private float horizontalInput;
@@ -49,8 +42,7 @@ public class Player : MonoBehaviour
         }
 
         horizontalInput = Input.GetAxis("Horizontal");
-
-        coinTextElement.text = coinTextValue;
+  
     }
 
     // FixedUpdate is called once every physic update
@@ -97,8 +89,6 @@ public class Player : MonoBehaviour
         {
             Destroy(other.gameObject);
             coinCounter++;
-
-            coinTextValue = "Coins: " + coinCounter.ToString();
             Debug.Log(coinCounter);
         }
         else if(other.gameObject.layer == 12)
