@@ -16,7 +16,8 @@ public class Player : MonoBehaviour
     public HealthBar healthBar;//health
 
     public Text coinTextElement;
-    private float coinCounter = 0;
+    private int lCoin;
+    private int tCoin;
     private string coinTextValue = "Coins: 0";
 
     private Rigidbody rigidbodyComponent;
@@ -28,11 +29,16 @@ public class Player : MonoBehaviour
     // Start is from unity MonoBehaviour   
     void Start()
     {
-        Debug.Log("Test");
         rigidbodyComponent = GetComponent<Rigidbody>();
         
         currentHealth = maxHealth;//health
 		healthBar.SetMaxHealth(maxHealth);//health
+
+        lCoin = 0;
+        tCoin = PlayerPrefs.GetInt("totalcoins", 15);
+
+        Debug.Log("tcoin at start" + tCoin);
+
 
     }
 
@@ -101,10 +107,10 @@ public class Player : MonoBehaviour
         if (other.gameObject.layer == 9)
         {
             Destroy(other.gameObject);
-            coinCounter++;
+            lCoin++;
 
-            coinTextValue = "Coins: " + coinCounter.ToString();
-            Debug.Log(coinCounter);
+            coinTextValue = "Coins: " + lCoin.ToString();
+            Debug.Log(lCoin);
         }
         else if(other.gameObject.layer == 12)
         {
@@ -134,7 +140,18 @@ public class Player : MonoBehaviour
 	}//health
 
     public void GameOver(){
+        PlayerPrefs.SetInt("levelcoins", lCoin);
+
         SceneManager.LoadScene("GameOver");
+    }
+
+    public void EndGame()
+    {
+        tCoin += lCoin;
+        PlayerPrefs.SetInt("totalcoins", tCoin);
+        PlayerPrefs.SetInt("levelcoins", lCoin);
+
+        //SceneManager.LoadScene();
     }
    
 
