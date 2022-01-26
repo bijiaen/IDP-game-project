@@ -69,19 +69,7 @@ public class Player : MonoBehaviour
     void FixedUpdate()
     {
         //left and right with a and d keys
-        rigidbodyComponent.velocity = new Vector3(horizontalInput, rigidbodyComponent.velocity.y, 0);
-
-        //Method #1 to check for collision: 
-
-        //Checking for collision by checking if our spheres overlap. Which sphere? A sphere of radius 0.1, at with center at groundCheckTransform
-        //Physics.OverlapSphere(groundCheckTransform.position, 0.1f) returns an array of collision points
-        //So for it to not collide with anything (be in the air), Length == 1
-        //Length == 1 and not 0 is because it is always colliding with the Player
-
-        //if (Physics.OverlapSphere(groundCheckTransform.position, 0.1f).Length == 1)
-        //{
-        //    return;
-        //}
+        rigidbodyComponent.velocity = new Vector3(horizontalInput * 2, rigidbodyComponent.velocity.y, 0);
 
         //Method #2 to check for collision:
         //This is the more proper way to detect collision
@@ -110,7 +98,6 @@ public class Player : MonoBehaviour
             lCoin++;
 
             coinTextValue = "Coins: " + lCoin.ToString();
-            Debug.Log(lCoin);
         }
         else if(other.gameObject.layer == 12)
         {

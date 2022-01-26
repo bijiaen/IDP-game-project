@@ -15,9 +15,9 @@ public class ScorePanel : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        tCoin = PlayerPrefs.GetInt("totalcoins", 15);
+        tCoin = PlayerPrefs.GetInt("totalcoins", 0);
         lCoin = PlayerPrefs.GetInt("levelcoins", 0);
-
+        Debug.Log(tCoin);
         levelCoinsTextElement.text = "LEVEL COINS: " + lCoin.ToString();
         totalCoinsTextElement.text = "TOTAL COINS: " + tCoin.ToString();
     }

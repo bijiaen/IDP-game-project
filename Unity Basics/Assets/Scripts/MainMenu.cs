@@ -14,7 +14,6 @@ public class MainMenu : MonoBehaviour
     void Start() 
     {
         isLevelSelect = PlayerPrefs.GetInt("isLevelSelect", 0);
-        Debug.Log(isLevelSelect);
         if (isLevelSelect == 1) {
             LevelMenuElement.SetActive(true);
             MainMenuElement.SetActive(false);
@@ -26,14 +25,29 @@ public class MainMenu : MonoBehaviour
 
    
 
-    public void PlayGame()
-    {
-        SceneManager.LoadScene("Level1");
-    }
+    // public void PlayGame()
+    // {
+    //     SceneManager.LoadScene("Level1");
+    // }
 
     public void QuitGame()
     {
         Debug.Log("Quitting...");
         Application.Quit();
+    }
+
+    public void PlayL1() {
+        PlayerPrefs.SetInt("currentLevel", 1);
+        SceneManager.LoadScene("Level1");
+    }
+
+    public void PlayL2() {
+        PlayerPrefs.SetInt("currentLevel", 2);
+        SceneManager.LoadScene("Level2");
+    }
+
+    public void PlayL3() {
+        PlayerPrefs.SetInt("currentLevel", 3);
+        SceneManager.LoadScene("Level3");
     }
 }
