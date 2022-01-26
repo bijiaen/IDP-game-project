@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class Player : MonoBehaviour
 {
@@ -20,7 +22,7 @@ public class Player : MonoBehaviour
     private Rigidbody rigidbodyComponent;
     private bool jumpKeyWasPressed;
     private float horizontalInput;
-
+    public Rigidbody rb;
 
     // Start is called before the first frame update
     // Start is from unity MonoBehaviour   
@@ -45,6 +47,13 @@ public class Player : MonoBehaviour
 
         horizontalInput = Input.GetAxis("Horizontal");
         coinTextElement.text = coinTextValue;
+
+        //fall
+        if (rb.position.y<=-10f)
+        {
+            GameOver();
+        }
+
     }
 
     // FixedUpdate is called once every physic update
@@ -82,6 +91,8 @@ public class Player : MonoBehaviour
             rigidbodyComponent.AddForce(Vector3.up * 6, ForceMode.VelocityChange);
             jumpKeyWasPressed = false;
         }
+        
+        
 
     }
 
@@ -98,7 +109,7 @@ public class Player : MonoBehaviour
         else if(other.gameObject.layer == 12)
         {
             Destroy(other.gameObject);
-            TakeDamage(20);
+            TakeDamage(60);
         }
         else if(other.gameObject.layer == 11)
         {
@@ -116,7 +127,15 @@ public class Player : MonoBehaviour
 		currentHealth -= damage;
 
 		healthBar.SetHealth(currentHealth);
+
+        if (currentHealth <= 0){
+            GameOver();
+        }
 	}//health
+
+    public void GameOver(){
+        SceneManager.LoadScene("GameOver");
+    }
    
 
    
