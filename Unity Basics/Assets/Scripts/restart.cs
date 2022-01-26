@@ -22,8 +22,14 @@ public class restart : MonoBehaviour
         SceneManager.LoadScene("Level1");
     }
 
-    public void LoadMenu()
-    {
+    // public void LoadMenu()
+    // {
+    //     SceneManager.LoadScene("Menu");
+    // }
+
+    public void LoadLevelSelection() {
+        PlayerPrefs.SetInt("isLevelSelect", 1);
         SceneManager.LoadScene("Menu");
+
     }
 }

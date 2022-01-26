@@ -499,7 +499,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 662318751}
         m_TargetAssemblyTypeName: restart, Assembly-CSharp
-        m_MethodName: LoadMenu
+        m_MethodName: LoadLevelSelection
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

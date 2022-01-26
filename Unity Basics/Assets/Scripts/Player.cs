@@ -123,7 +123,7 @@ public class Player : MonoBehaviour
         }
         else if (other.gameObject.layer == 10)
         {
-            Debug.Log("END OF GAME!!");
+            EndGame();
         }
         
     }
@@ -151,7 +151,7 @@ public class Player : MonoBehaviour
         PlayerPrefs.SetInt("totalcoins", tCoin);
         PlayerPrefs.SetInt("levelcoins", lCoin);
 
-        //SceneManager.LoadScene();
+        SceneManager.LoadScene("Finish");
     }
    
 
