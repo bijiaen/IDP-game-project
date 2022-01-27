@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     public LayerMask playerMask;
 
     public int maxHealth = 100; //health
-	public int currentHealth;//health
+    public int currentHealth;//health
     public HealthBar healthBar;//health
 
     public Text coinTextElement;
@@ -30,12 +30,12 @@ public class Player : MonoBehaviour
     void Start()
     {
         rigidbodyComponent = GetComponent<Rigidbody>();
-        
+
         currentHealth = maxHealth;//health
-		healthBar.SetMaxHealth(maxHealth);//health
+        healthBar.SetMaxHealth(maxHealth);//health
 
         lCoin = 0;
-        tCoin = PlayerPrefs.GetInt("totalcoins", 15);
+        tCoin = PlayerPrefs.GetInt("totalcoins", 0);
 
         Debug.Log("tcoin at start" + tCoin);
 
@@ -55,7 +55,7 @@ public class Player : MonoBehaviour
         coinTextElement.text = coinTextValue;
 
         //fall
-        if (rb.position.y<=-10f)
+        if (rb.position.y <= -10f)
         {
             GameOver();
         }
@@ -64,7 +64,7 @@ public class Player : MonoBehaviour
 
     // FixedUpdate is called once every physic update
 
-   
+
 
     void FixedUpdate()
     {
@@ -85,8 +85,8 @@ public class Player : MonoBehaviour
             rigidbodyComponent.AddForce(Vector3.up * 6, ForceMode.VelocityChange);
             jumpKeyWasPressed = false;
         }
-        
-        
+
+
 
     }
 
@@ -99,12 +99,12 @@ public class Player : MonoBehaviour
 
             coinTextValue = "Coins: " + lCoin.ToString();
         }
-        else if(other.gameObject.layer == 12)
+        else if (other.gameObject.layer == 12)
         {
             Destroy(other.gameObject);
             TakeDamage(60);
         }
-        else if(other.gameObject.layer == 11)
+        else if (other.gameObject.layer == 11)
         {
             TakeDamage(20);
         }
@@ -112,21 +112,23 @@ public class Player : MonoBehaviour
         {
             EndGame();
         }
-        
+
     }
 
     void TakeDamage(int damage)
-	{
-		currentHealth -= damage;
+    {
+        currentHealth -= damage;
 
-		healthBar.SetHealth(currentHealth);
+        healthBar.SetHealth(currentHealth);
 
-        if (currentHealth <= 0){
+        if (currentHealth <= 0)
+        {
             GameOver();
         }
-	}//health
+    }//health
 
-    public void GameOver(){
+    public void GameOver()
+    {
         PlayerPrefs.SetInt("levelcoins", lCoin);
 
         SceneManager.LoadScene("GameOver");
@@ -140,7 +142,7 @@ public class Player : MonoBehaviour
 
         SceneManager.LoadScene("Finish");
     }
-   
 
-   
+
+
 }
