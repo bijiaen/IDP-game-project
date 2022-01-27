@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
     public Text coinTextElement;
     private int lCoin;
     private int tCoin;
-    private string coinTextValue = "Coins: 0";
+    private string coinTextValue = "0";
 
     private Rigidbody rigidbodyComponent;
     private bool jumpKeyWasPressed;
@@ -97,7 +97,7 @@ public class Player : MonoBehaviour
             Destroy(other.gameObject);
             lCoin++;
 
-            coinTextValue = "Coins: " + lCoin.ToString();
+            coinTextValue = lCoin.ToString();
         }
         else if (other.gameObject.layer == 12)
         {
