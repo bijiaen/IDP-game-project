@@ -21,13 +21,11 @@ public class MainMenu : MonoBehaviour
         if (!PlayerPrefs.HasKey("highestLevel"))
         {
             PlayerPrefs.SetInt("highestLevel", 0);
-            Debug.Log("first time player");
             Level1Element.SetActive(true);
         }
         else
         {
             highestLevel = PlayerPrefs.GetInt("highestLevel");
-            Debug.Log("highestLevel: " + highestLevel.ToString());
 
             if (highestLevel >= 0)
             {
