@@ -23,10 +23,11 @@ public class ScorePanel : MonoBehaviour
             {
                 highScore = PlayerPrefs.GetInt("L1highscore");
             }
-            else
+
+            if (!PlayerPrefs.HasKey("L1highscore") || lCoin > highScore)
             {
                 highScore = lCoin;
-                PlayerPrefs.SetInt("L1highscore", highScore);
+                PlayerPrefs.SetInt("L1highscore", lCoin);
             }
         }
         else if (currentLevel == 2)
@@ -35,10 +36,11 @@ public class ScorePanel : MonoBehaviour
             {
                 highScore = PlayerPrefs.GetInt("L2highscore");
             }
-            else
+
+            if (!PlayerPrefs.HasKey("L2highscore") || lCoin > highScore)
             {
                 highScore = lCoin;
-                PlayerPrefs.SetInt("L2highscore", highScore);
+                PlayerPrefs.SetInt("L2highscore", lCoin);
             }
         }
         else if (currentLevel == 3)
@@ -47,24 +49,21 @@ public class ScorePanel : MonoBehaviour
             {
                 highScore = PlayerPrefs.GetInt("L3highscore");
             }
-            else
+
+            if (!PlayerPrefs.HasKey("L3highscore") || lCoin > highScore)
             {
                 highScore = lCoin;
-                PlayerPrefs.SetInt("L3highscore", highScore);
+                PlayerPrefs.SetInt("L3highscore", lCoin);
             }
         }
         else
         {
-            Debug.Log("No highscore found");
+            Debug.Log("highscore not found");
         }
+
         levelCoinsTextElement.text = "COINS EARNED: " + lCoin.ToString();
         totalCoinsTextElement.text = tCoin.ToString();
         highScoreTextElement.text = "HIGH SCORE: " + highScore.ToString();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 }
