@@ -25,6 +25,8 @@ public class Player : MonoBehaviour
     private float horizontalInput;
     public Rigidbody rb;
 
+    public AudioSource jumpAudio, coinAudio, dmgAudio;
+
     // Start is called before the first frame update
     // Start is from unity MonoBehaviour   
     void Start()
@@ -36,10 +38,6 @@ public class Player : MonoBehaviour
 
         lCoin = 0;
         tCoin = PlayerPrefs.GetInt("totalcoins", 0);
-
-        Debug.Log("tcoin at start" + tCoin);
-
-
     }
 
     // Update is called once per frame
@@ -83,6 +81,7 @@ public class Player : MonoBehaviour
         if (jumpKeyWasPressed)
         {
             rigidbodyComponent.AddForce(Vector3.up * 6, ForceMode.VelocityChange);
+            jumpAudio.Play(0);
             jumpKeyWasPressed = false;
         }
 
@@ -96,6 +95,7 @@ public class Player : MonoBehaviour
         {
             Destroy(other.gameObject);
             lCoin++;
+            coinAudio.Play(0);
 
             coinTextValue = lCoin.ToString();
         }
@@ -103,10 +103,12 @@ public class Player : MonoBehaviour
         {
             Destroy(other.gameObject);
             TakeDamage(60);
+            dmgAudio.Play(0);
         }
         else if (other.gameObject.layer == 11)
         {
             TakeDamage(20);
+            dmgAudio.Play(0);
         }
         else if (other.gameObject.layer == 10)
         {
