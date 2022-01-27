@@ -314,6 +314,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: L2Button
       objectReference: {fileID: 0}
+    - target: {fileID: 1664659203164565737, guid: 34e8717a70135ed44ba1fc7b9cb0d524, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1664659203164565751, guid: 34e8717a70135ed44ba1fc7b9cb0d524, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -356,6 +360,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34e8717a70135ed44ba1fc7b9cb0d524, type: 3}
+--- !u!1 &90918907 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1664659203164565737, guid: 34e8717a70135ed44ba1fc7b9cb0d524, type: 3}
+  m_PrefabInstance: {fileID: 90918906}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &112107754
 GameObject:
   m_ObjectHideFlags: 0
@@ -1530,6 +1539,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: L3Button
       objectReference: {fileID: 0}
+    - target: {fileID: 1664659203164565737, guid: 34e8717a70135ed44ba1fc7b9cb0d524, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1664659203164565751, guid: 34e8717a70135ed44ba1fc7b9cb0d524, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -1596,6 +1609,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34e8717a70135ed44ba1fc7b9cb0d524, type: 3}
+--- !u!1 &761089810 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1664659203164565737, guid: 34e8717a70135ed44ba1fc7b9cb0d524, type: 3}
+  m_PrefabInstance: {fileID: 761089809}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &800816706 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1664659203164565736, guid: 34e8717a70135ed44ba1fc7b9cb0d524, type: 3}
@@ -2222,6 +2240,9 @@ MonoBehaviour:
   MainMenuElement: {fileID: 0}
   LevelMenuElement: {fileID: 0}
   OptionsMenuElement: {fileID: 0}
+  Level1Element: {fileID: 0}
+  Level2Element: {fileID: 0}
+  Level3Element: {fileID: 0}
 --- !u!1 &1276758985
 GameObject:
   m_ObjectHideFlags: 0
@@ -2484,6 +2505,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: L1Button
       objectReference: {fileID: 0}
+    - target: {fileID: 1664659203164565737, guid: 34e8717a70135ed44ba1fc7b9cb0d524, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1664659203164565751, guid: 34e8717a70135ed44ba1fc7b9cb0d524, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -2526,6 +2551,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34e8717a70135ed44ba1fc7b9cb0d524, type: 3}
+--- !u!1 &1552894019 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1664659203164565737, guid: 34e8717a70135ed44ba1fc7b9cb0d524, type: 3}
+  m_PrefabInstance: {fileID: 1552894018}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1677685646
 GameObject:
   m_ObjectHideFlags: 0
@@ -2820,6 +2850,9 @@ MonoBehaviour:
   MainMenuElement: {fileID: 584972205}
   LevelMenuElement: {fileID: 1024627225}
   OptionsMenuElement: {fileID: 1015380742}
+  Level1Element: {fileID: 1552894019}
+  Level2Element: {fileID: 90918907}
+  Level3Element: {fileID: 761089810}
 --- !u!224 &1928480864 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1664659203164565736, guid: 34e8717a70135ed44ba1fc7b9cb0d524, type: 3}
