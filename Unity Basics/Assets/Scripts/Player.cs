@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
     private int tCoin;
     private string coinTextValue = "0";
 
-    private Rigidbody rigidbodyComponent;
+    public Rigidbody rigidbodyComponent;
     private bool jumpKeyWasPressed;
     private float horizontalInput;
     public Rigidbody rb;
