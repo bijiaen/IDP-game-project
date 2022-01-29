@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     public int maxHealth = 100; //health
     public int currentHealth;//health
     public HealthBar healthBar;//health
+    public Animator animator;
 
     public Text coinTextElement;
     private int lCoin;
@@ -68,6 +69,8 @@ public class Player : MonoBehaviour
     {
         //left and right with a and d keys
         rigidbodyComponent.velocity = new Vector3(horizontalInput * 2, rigidbodyComponent.velocity.y, 0);
+        
+        animator.SetFloat("Speed",Mathf.Abs(horizontalInput * 2));
 
         //Method #2 to check for collision:
         //This is the more proper way to detect collision
