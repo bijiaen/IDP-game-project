@@ -6,7 +6,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 
-public class Player : MonoBehaviour
+public class Player1 : MonoBehaviour
 {
     public Transform groundCheckTransform;
     public LayerMask playerMask;
@@ -14,7 +14,9 @@ public class Player : MonoBehaviour
     public int maxHealth = 100; //health
     public int currentHealth;//health
     public HealthBar healthBar;//health
-    
+    public Animator animator;
+    private bool left=true;
+
     public Text coinTextElement;
     private int lCoin;
     private int tCoin;
@@ -69,7 +71,35 @@ public class Player : MonoBehaviour
         //left and right with a and d keys
         rigidbodyComponent.velocity = new Vector3(horizontalInput * 2, rigidbodyComponent.velocity.y, 0);
         
+        animator.SetFloat("Speed",Mathf.Abs(horizontalInput * 2));
+
         
+
+        if (rb.velocity.x >= 0.01f)
+        {
+             if(left)
+            {
+                transform.Rotate(new Vector4(0,0,0));
+            }else
+            {
+                transform.Rotate(new Vector4(180,0,180));
+                left=true;
+            }
+           
+        }
+        if (rb.velocity.x <= -0.01f )
+        { 
+            if(!left)
+            {
+                transform.Rotate(new Vector4(0,0,0));
+            }else
+            {
+                transform.Rotate(new Vector4(180,0,180));
+                left=false;
+            }
+           
+           
+        }
 
         //Method #2 to check for collision:
         //This is the more proper way to detect collision
@@ -78,13 +108,19 @@ public class Player : MonoBehaviour
         {
             return;
         }
-
+        
+        animator.SetFloat("Jump",0);
         //jump
         if (jumpKeyWasPressed)
         {
+            animator.SetFloat("Jump",1);
+            
             rigidbodyComponent.AddForce(Vector3.up * 6, ForceMode.VelocityChange);
             jumpAudio.Play(0);
+
             jumpKeyWasPressed = false;
+
+           
         }
 
 
