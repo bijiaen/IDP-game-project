@@ -55,7 +55,7 @@ public class Player1 : MonoBehaviour
         coinTextElement.text = coinTextValue;
 
         //fall
-        if (rb.position.y <= -10f)
+        if (rb.position.y <= 60f)
         {
             GameOver();
         }
