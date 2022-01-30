@@ -15,7 +15,7 @@ public class Player1 : MonoBehaviour
     public int currentHealth;//health
     public HealthBar healthBar;//health
     public Animator animator;
-    private bool left=true;
+    private bool left = true;
 
     public Text coinTextElement;
     private int lCoin;
@@ -29,6 +29,8 @@ public class Player1 : MonoBehaviour
 
     public AudioSource jumpAudio, coinAudio, dmgAudio;
 
+    private int currentLevel, highestLevel;
+
     // Start is called before the first frame update
     // Start is from unity MonoBehaviour   
     void Start()
@@ -40,6 +42,9 @@ public class Player1 : MonoBehaviour
 
         lCoin = 0;
         tCoin = PlayerPrefs.GetInt("totalcoins", 0);
+
+        currentLevel = PlayerPrefs.GetInt("currentLevel");
+        highestLevel = PlayerPrefs.GetInt("highestLevel");
     }
 
     // Update is called once per frame
@@ -70,35 +75,37 @@ public class Player1 : MonoBehaviour
     {
         //left and right with a and d keys
         rigidbodyComponent.velocity = new Vector3(horizontalInput * 2, rigidbodyComponent.velocity.y, 0);
-        
-        animator.SetFloat("Speed",Mathf.Abs(horizontalInput * 2));
 
-        
+        animator.SetFloat("Speed", Mathf.Abs(horizontalInput * 2));
+
+
 
         if (rb.velocity.x >= 0.01f)
         {
-             if(left)
+            if (left)
             {
-                transform.Rotate(new Vector4(0,0,0));
-            }else
-            {
-                transform.Rotate(new Vector4(180,0,180));
-                left=true;
+                transform.Rotate(new Vector4(0, 0, 0));
             }
-           
+            else
+            {
+                transform.Rotate(new Vector4(180, 0, 180));
+                left = true;
+            }
+
         }
-        if (rb.velocity.x <= -0.01f )
-        { 
-            if(!left)
+        if (rb.velocity.x <= -0.01f)
+        {
+            if (!left)
             {
-                transform.Rotate(new Vector4(0,0,0));
-            }else
-            {
-                transform.Rotate(new Vector4(180,0,180));
-                left=false;
+                transform.Rotate(new Vector4(0, 0, 0));
             }
-           
-           
+            else
+            {
+                transform.Rotate(new Vector4(180, 0, 180));
+                left = false;
+            }
+
+
         }
 
         //Method #2 to check for collision:
@@ -108,19 +115,17 @@ public class Player1 : MonoBehaviour
         {
             return;
         }
-        
-        animator.SetFloat("Jump",0);
+
+        animator.SetFloat("Jump", 0);
         //jump
         if (jumpKeyWasPressed)
         {
-            animator.SetFloat("Jump",1);
-            
+            animator.SetFloat("Jump", 1);
+
             rigidbodyComponent.AddForce(Vector3.up * 6, ForceMode.VelocityChange);
             jumpAudio.Play(0);
 
             jumpKeyWasPressed = false;
-
-           
         }
 
 
@@ -179,6 +184,11 @@ public class Player1 : MonoBehaviour
         tCoin += lCoin;
         PlayerPrefs.SetInt("totalcoins", tCoin);
         PlayerPrefs.SetInt("levelcoins", lCoin);
+
+        if (currentLevel > highestLevel)
+        {
+            PlayerPrefs.SetInt("highestLevel", currentLevel);
+        }
 
         SceneManager.LoadScene("Finish");
     }

@@ -17,6 +17,7 @@ public class MainMenu : MonoBehaviour
 
     void Start()
     {
+        Debug.Log(PlayerPrefs.GetInt("highestLevel"));
 
         if (!PlayerPrefs.HasKey("highestLevel"))
         {
@@ -52,17 +53,10 @@ public class MainMenu : MonoBehaviour
         }
     }
 
-
-
-    // public void PlayGame()
-    // {
-    //     SceneManager.LoadScene("Level1");
-    // }
-
     public void QuitGame()
     {
         Debug.Log("Quitting...");
-        //Application.Quit();
+        Application.Quit();
     }
 
     public void PlayL1()

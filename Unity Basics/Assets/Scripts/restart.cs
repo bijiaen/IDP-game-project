@@ -7,23 +7,10 @@ public class restart : MonoBehaviour
 {
 
     private int currentLevel;
-    private int highestLevel;
     // Start is called before the first frame update
     void Start()
     {
         currentLevel = PlayerPrefs.GetInt("currentLevel");
-        highestLevel = PlayerPrefs.GetInt("highestLevel");
-
-        if (currentLevel > highestLevel)
-        {
-            PlayerPrefs.SetInt("highestLevel", currentLevel);
-        }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     public void LoadGame()
