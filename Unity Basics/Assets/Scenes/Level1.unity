@@ -2240,7 +2240,7 @@ MonoBehaviour:
   currentHealth: 0
   healthBar: {fileID: 1516201594}
   animator: {fileID: 896477419}
-  coinTextElement: {fileID: 0}
+  coinTextElement: {fileID: 2104293939}
   rigidbodyComponent: {fileID: 896477417}
   rb: {fileID: 896477417}
   jumpAudio: {fileID: 1398406576}
@@ -4734,6 +4734,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a84c98c030d74034b8373e6aa61739c3, type: 3}
+--- !u!114 &2104293939 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2708387196683176996, guid: a84c98c030d74034b8373e6aa61739c3, type: 3}
+  m_PrefabInstance: {fileID: 2104293938}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2452157118230442696
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -76,4 +76,9 @@ public class MainMenu : MonoBehaviour
         PlayerPrefs.SetInt("currentLevel", 3);
         SceneManager.LoadScene("Level3");
     }
+
+    public void LoadInstructions()
+    {
+        SceneManager.LoadScene("Instructions");
+    }
 }
