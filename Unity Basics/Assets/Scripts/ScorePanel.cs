@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ScorePanel : MonoBehaviour
 {
-    public Text levelCoinsTextElement, totalCoinsTextElement, highScoreTextElement;
+    public Text levelCoinsTextElement, highScoreTextElement;
 
     private int lCoin, tCoin, currentLevel, highScore;
 
@@ -62,7 +62,6 @@ public class ScorePanel : MonoBehaviour
         }
 
         levelCoinsTextElement.text = "COINS EARNED: " + lCoin.ToString();
-        totalCoinsTextElement.text = tCoin.ToString();
         highScoreTextElement.text = "HIGH SCORE: " + highScore.ToString();
     }
 

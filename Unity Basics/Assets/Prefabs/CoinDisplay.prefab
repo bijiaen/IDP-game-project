@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2708387195899031375}
+  - component: {fileID: 6075988624066650786}
   m_Layer: 5
   m_Name: CoinDisplay
   m_TagString: Untagged
@@ -38,6 +39,19 @@ RectTransform:
   m_AnchoredPosition: {x: 75, y: 25}
   m_SizeDelta: {x: 150, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &6075988624066650786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2708387195899031374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1416ada52430ff4ab2b9b7560479f1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalCoinsTextElement: {fileID: 2708387196683176996}
 --- !u!1 &2708387196557211627
 GameObject:
   m_ObjectHideFlags: 0

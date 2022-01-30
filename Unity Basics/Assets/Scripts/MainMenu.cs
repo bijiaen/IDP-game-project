@@ -81,4 +81,9 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene("Instructions");
     }
+
+    public void ResetGame()
+    {
+        SceneManager.LoadScene("ResetGame");
+    }
 }
